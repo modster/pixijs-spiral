@@ -35,8 +35,6 @@
         // Create a new texture
         const texture = PIXI.Texture.from('image.jpg');
 
-        // // Create a 5x5 grid of bunnies
-        // for (let i = 0; i < 25; i++) {
         const spiral0 = new PIXI.Sprite(texture);
         const spiral1 = new PIXI.Sprite(texture);
 
@@ -50,19 +48,14 @@
         container.x = app.screen.width / 2;
         container.y = app.screen.height / 2;
 
-        spiral0.alpha = 0.1;// * Math.sin(delta * 0.5);
-        spiral1.alpha = 0.;// * Math.sin(delta * 0.5);
-
-        // Center spiral0 sprite in local container coordinates
-        spiral0.pivot.x = container.width / 2;
-        spiral1.pivot.y = container.height / 2;
-
+        spiral0.alpha = 0.5;
+        spiral1.alpha = 0.5;
 
         // Listen for animate update
         app.ticker.add((delta) => {
-            // rotate the container!
+
             // use delta to create frame-independent transform
-            spiral0.rotation -= 0.005 * delta;
+            spiral0.rotation -= 0.0005 * delta;
             container.blendMode = PIXI.BLEND_MODES.DIFFERENCE;
             spiral1.rotation += 0.0005 * delta;
 
